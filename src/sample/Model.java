@@ -84,15 +84,15 @@ class Model {
         conf.get(spelerPos[0] + 2 * x).set(spelerPos[1] + 2 * y, conf.get(spelerPos[0] + x).get(spelerPos[1] + y));
         conf.get(spelerPos[0] + x).set(spelerPos[1] + y, ((Kist) conf.get(spelerPos[0] + 2 * x).get(spelerPos[1] + 2 * y)).getLastWalked());
 
+        if (((Kist) conf.get(spelerPos[0] + 2 * x).get(spelerPos[1] + 2 * y)).getLastWalked() instanceof Lamp) {
+            huidigeAantalGeactiveerdeLampen--;
+        }
+
         ((Kist) conf.get(spelerPos[0] + 2 * x).get(spelerPos[1] + 2 * y)).setLastWalked(volgendeTegel);
     }
 
     private void playerMove(int x, int y) {
         Stuk volgendeTegel = conf.get(spelerPos[0] + x).get(spelerPos[1] + y).getSolid() ? new Blanco() : conf.get(spelerPos[0] + x).get(spelerPos[1] + y);
-
-        if (((Speler) conf.get(spelerPos[0]).get(spelerPos[1])).getLastWalked() instanceof Lamp) {
-            huidigeAantalGeactiveerdeLampen--;
-        }
 
         conf.get(spelerPos[0] + x).set(spelerPos[1] + y, conf.get(spelerPos[0]).get(spelerPos[1]));
         conf.get(spelerPos[0]).set(spelerPos[1], ((Speler) conf.get(spelerPos[0]).get(spelerPos[1])).getLastWalked());
