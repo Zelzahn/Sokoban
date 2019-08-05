@@ -19,7 +19,7 @@ class Model {
         spelerPos = new int[2];
         conf = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader(new File("C:\\Users\\Friedrich\\IdeaProjects\\sobokan\\src\\sample\\spelbordEditor.txt")))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(new File("C:\\Users\\Friedrich\\IdeaProjects\\Sokoban\\src\\sample\\spelbordEditor.txt")))) {
             String regel = br.readLine();
             int ctr = 0;
             while (regel != null && regel.length() != 0) {
